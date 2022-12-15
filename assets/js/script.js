@@ -8,6 +8,7 @@ const $saveStatus = $('.saveStatus');
 var currentTime = dayjs().format('h:mm A');
 var currentDay = dayjs().format('dddd, MMMM D');
 var currentHour = dayjs().get('hour');
+// var currentHour = 10;
 
 //Time-Blocks & Array
 var $hourNine = $('#hourNine');
