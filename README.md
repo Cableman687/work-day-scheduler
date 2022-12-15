@@ -18,6 +18,8 @@ N/A
 
 ## Usage
 
+https://cableman687.github.io/work-day-scheduler/
+
 To use this application, the user must choose a 1-hour slot to place their activity.
 
 By clicking in the text box, the user may enter their scheduled activity by typing.
