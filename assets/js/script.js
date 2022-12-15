@@ -1,7 +1,9 @@
 //Button Elements
-var nineSlotBtn = $('#nineSlotBtn');
-var tenbSlotBtn = $('#tenSlotBtn');
-var elevenSlotBtn = $('#elevenSlotBtn');
+var $nineSlotBtn = $('#nineSlotBtn');
+var $tenbSlotBtn = $('#tenSlotBtn');
+var $elevenSlotBtn = $('#elevenSlotBtn');
+
+var $Button = $('btn');
 
 //Date/Time elements
 var currentTime = dayjs().format('h:mm A');
@@ -10,31 +12,49 @@ var currentDay = dayjs().format('dddd, MMMM D');
 var currentHour = 10;
 
 //Time-Blocks
-var hourNineEl = document.querySelector('#hourNine');
-var hourTenEl = document.querySelector('#hourTen');
-var hourElevenEl = document.querySelector('#hourEleven');
-// var hourNineEl = document.querySelector('#hourNine');
-// var hourNineEl = document.querySelector('#hourNine');
-// var hourNineEl = document.querySelector('#hourNine');
-// var hourNineEl = document.querySelector('#hourNine');
-// var hourNineEl = document.querySelector('#hourNine');
-// var hourNineEl = document.querySelector('#hourNine');
+var $hourNine = $('#hourNine');
+var $hourTen = $('#hourTen');
+var $hourEleven = $('#hourEleven');
+var $hourTwelve = $('#hourTwelve');
+var $hourThirteen = $('#hourThirteen');
+var $hourFourteen = $('#hourFourteen');
+var $hourFifteen = $('#hourFifteen');
+var $hourSixteen = $('#hourSixteen');
+var $hourSeventeen = $('#hourSeventeen');
 
 var timeBlockElements = [
-  hourNineEl,
-  hourTenEl,
-  hourElevenEl,
+  $hourNine,
+  $hourTen,
+  $hourEleven,
+  $hourTwelve,
+  $hourThirteen,
+  $hourFourteen,
+  $hourFifteen,
+  $hourSixteen,
+  $hourSeventeen,
 ]
 
 //Block Times
 const timeNine = dayjs().startOf('day').add(9,'hour').format('H');
 const timeTen = dayjs().startOf('day').add(10,'hour').format('H');
 const timeEleven = dayjs().startOf('day').add(11,'hour').format('H');
+const timeTwelve = dayjs().startOf('day').add(12,'hour').format('H');
+const timeThirteen = dayjs().startOf('day').add(13,'hour').format('H');
+const timeFourteen = dayjs().startOf('day').add(14,'hour').format('H');
+const timeFifteen = dayjs().startOf('day').add(15,'hour').format('H');
+const timeSixteen = dayjs().startOf('day').add(16,'hour').format('H');
+const timeSeventeen = dayjs().startOf('day').add(17,'hour').format('H');
 
 var times = [
   timeNine,
   timeTen,
   timeEleven,
+  timeTwelve,
+  timeThirteen,
+  timeFourteen,
+  timeFifteen,
+  timeSixteen,
+  timeSeventeen,
 ]
 
 
@@ -72,7 +92,7 @@ $(function (event) {
    
 
   // Save input
-  nineSlotBtn.on('click', function(event){
+  $nineSlotBtn.on('click', function(event){
     event.preventDefault();
 
     console.log("Nine Button Pressed!");
@@ -104,14 +124,15 @@ $(function (event) {
   //(WC) --For all timeblocks with dayJS hour values equal to current Hour value, pass .presnt class.
   for(var i = 0; i < timeBlockElements.length; i++){
 
-    var dynamicHour = timeBlockElements[i].dataset.time;
+    // var dynamicHour = timeBlockElements[i].dataset.time;
+    var dynamicHour = timeBlockElements[i].data('time');
     
     if(dynamicHour < currentHour){
-      timeBlockElements[i].classList.add("past");
+      timeBlockElements[i].addClass("past");
     } else if(dynamicHour > currentHour){
-      timeBlockElements[i].classList.add("future");
+      timeBlockElements[i].addClass("future");
     } else {
-      timeBlockElements[i].classList.add("present");
+      timeBlockElements[i].addClass("present");
     } 
 
 
